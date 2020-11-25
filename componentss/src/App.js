@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import InformationContainer from './components/InformationContainer';
+import ItemContainer from './components/ItemContainer';
+import SwitchContainer from './components/SwitchContainer';
+import UserCardWrapper from './components/UserCardWrapper'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <UserCardWrapper></UserCardWrapper> */}
+      {/* <ItemContainer></ItemContainer> */}
+      {/* <SwitchContainer></SwitchContainer> */}
+      <InformationContainer></InformationContainer>
     </div>
   );
 }
