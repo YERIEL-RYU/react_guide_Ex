@@ -1,15 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux'
 
-import {increaseAction, decreaseAction} from '../modules/counter'
+import {increaseThenDecrease, decreaseAction} from '../modules/counter'
 
 const Button = (props) => {
     return (
         <div>
-            <button onClick={()=> {props.dispatch(increaseAction())}}>+</button>
-            <button onClick={()=> {props.dispatch(decreaseAction())}}>-</button>
+            <button onClick={props.increase}>+</button>
+            <button onClick={props.decrease}>-</button>
         </div>
     );
 };
 
-export default connect()(Button);
+const mapDispatchToState = (dispatch) => {
+    return {
+        increase : () => dispatch(increaseThenDecrease()),
+        decrease : () => dispatch(decreaseAction()),
+    }
+}
+
+
+
+export default connect(undefined, mapDispatchToState)(Button);

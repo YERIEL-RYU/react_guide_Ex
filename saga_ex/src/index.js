@@ -7,13 +7,17 @@ import reportWebVitals from './reportWebVitals';
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 
-// import counter from './modules/counter'
+import request from './modules/request'
 
-// import logger from './middleware/logger'
-import thunk from 'redux-thunk'
-import request from './modules/request';
+import createSagaMiddleware from 'redux-saga'
 
-const store = createStore(request, applyMiddleware(thunk))
+import mySaga from './modules/sagas'
+
+const sagaMiddleware = createSagaMiddleware()
+
+const store = createStore(request, applyMiddleware(sagaMiddleware))
+
+sagaMiddleware.run(mySaga)
 
 ReactDOM.render(
   <Provider store={store}>
