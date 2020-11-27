@@ -4,12 +4,25 @@ const inc = "ACTION_INCREASE"
 const dec = "ACTION_DECREASE"
 
 //action
-export const increaseAction = () => ( {
-    type: inc
+export const increaseAction = (seq) => ( {
+    type: inc,
+    seq: seq
 })
-export const decreaseAction = () => ( {
-    type: dec
+export const decreaseAction = (seq) => ( {
+    type: dec,
+    seq:seq
 })
+
+let sequence = 0;
+export const increaseThenDecrease = () => {
+    return (dispatch) => {
+        dispatch(increaseAction(sequence++))
+        
+        setTimeout((seq) => {
+            dispatch(decreaseAction(sequence))
+        },5000)
+    }
+}
 
 //reducer
 const counter = (state = initialState, action) => {

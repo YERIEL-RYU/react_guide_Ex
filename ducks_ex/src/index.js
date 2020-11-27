@@ -7,11 +7,13 @@ import reportWebVitals from './reportWebVitals';
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 
-import counter from './modules/counter'
+// import counter from './modules/counter'
 
-import logger from './middleware/logger'
+// import logger from './middleware/logger'
+import thunk from 'redux-thunk'
+import request from './modules/request';
 
-const store = createStore(counter, applyMiddleware(logger))
+const store = createStore(request, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>

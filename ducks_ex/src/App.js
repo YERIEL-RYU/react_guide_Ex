@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import CountApp from './container/CountApp'
+import LoadingIcon from './container/LoadingIcon';
+// import CountApp from './container/CountApp'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <CountApp />
+        <LoadingIcon />
       </div>
     );
   }
